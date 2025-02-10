@@ -1,14 +1,17 @@
-const removeFromArray = function(array, values) {
-
-    for (let value of values) {
-        const index = array.indexOf(value);
-        if (index > -1) {
-            array.splice(index, 1);
+const removeFromArray = function(array, ...values) {
+    
+    let filteredArray = array.filter(function(value) {
+        if (values.includes(value)) {
+            return false;
         }
-    }
-
-    return array;
+        return true;
+    });
+    
+    return filteredArray;
 };
+
+
+
 
 // Do not edit below this line
 module.exports = removeFromArray;
